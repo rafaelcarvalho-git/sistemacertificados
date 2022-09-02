@@ -15,11 +15,6 @@
   include_once("modals/conexao.php");  
   $mes = date("m");$mes++;
   $ano = date("Y");
-  $solicitar_vencimentos = "SELECT * FROM negocios_futuros ORDER BY id DESC";   
-  $vencimentos = mysqli_query($connect, $solicitar_vencimentos);
-  if($vencimentos === FALSE) { 
-    die(mysqli_error($connect));
-  }
 
   $total = "SELECT count(*) FROM solicitacoes_concluidas";   
   $t = mysqli_query($connect, $total);
