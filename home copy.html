@@ -2,10 +2,48 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <?php include('modals/head.php'); ?>
+<meta charset="utf-8">
+<meta name="author" content="Rafael Carvalho">
+<meta name="description" content="Sistema solicitar certificados">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SisCert</title>    
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<link rel="shortcut icon" type="imagex/png" href="css/icon.ico">
 </head>
 <body class="bg-light">
-  <?php include('modals/navbar.php'); ?>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" aria-label="Fourth navbar example">
+    <div class="container-fluid container">
+      <img src="css/logo.png" alt="" width="50" height="32" class="d-inline-block align-text-top ms-5"><a class="navbar-brand mx-auto ms-2" href="home.php">SISTEMA CERTIFICADOS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button><style>@media(max-width:770px){.navbar-brand{display:none;}}</style>
+      <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link text-white dropdown-toggle" href="" id="dropdownSolicitacoes" data-bs-toggle="dropdown" aria-expanded="false">Solicitações</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownSolicitacoes">
+              <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#solicitarCertificado">Nova Solicitação</a></li>
+              <li><a class="dropdown-item" href="solicitacoes.php">Listar Solicitações</a></li>   
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white position-relative" href="" data-bs-toggle="modal" data-bs-target="#vencimentos">Vencimentos</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link text-white dropdown-toggle" href="" id="dropdownUsuarios" data-bs-toggle="dropdown" aria-expanded="false">Usuários</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownUsuarios">
+              <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#cadastrarUsuario">Cadastrar Usuário</a></li>
+              <li><a class="dropdown-item" href="usuarios.php">Listar Usuários</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="" data-bs-toggle="modal" data-bs-target="#sairSistema">Sair</a>  
+          </li>  
+        </ul>
+      </div>
+    </div>
+</nav>
 <header class="container py-4 text-center">
   <h3 class="text-center mx-auto pb-1">Olá, <strong>afd</strong>. Seja bem vindo(a).</h3>     
   <h2>Sistema E2S Corretora de Seguros - Certificadora Digital</h2>
@@ -22,7 +60,7 @@
     die(mysqli_error($connect));
   }
 
-  $total3 = "SELECT count(*) FROM solicitacoes";   
+  $total3 = "SELECT count(*) FROM solicitacoes_ativas";   
   $t3 = mysqli_query($connect, $total3);
   if($t3 === FALSE) { 
     die(mysqli_error($connect));
@@ -39,33 +77,20 @@
   if($t4 === FALSE) { 
     die(mysqli_error($connect));
   }
-  
-  $totcpf = "SELECT count(*) FROM solicitacoes_concluidas where tipo_certificado = 'E-CPF A1 Midia Digital 1 Ano'";   
-  $tc2 = mysqli_query($connect, $totcpf);
-  if($tc2 === FALSE) { 
-    die(mysqli_error($connect));
-  }
-  while($tt6=mysqli_fetch_assoc($tc2)){echo $tt6['count(*)'];}
-  $cpf1 = $tt6['count(*)'];
-  $cpf2 = 1;
-  $cpf3 = 1;
-  $cpf4 = 1;
-  $cpf5 = 1;
-  $cpf6 = 1;
 ?>
 <main class="container">
   <section class="d-flex mx-auto justify-content-evenly">
     <div class="card" style="width:16rem;height:8rem;">
       <div class="card-body">
         <h5 class="card-title">Total de Certificados</h5>
-        <h2 class="card-text"><?php while($tt=mysqli_fetch_assoc($t)){echo $tt['count(*)'];echo $cpf1;}?></h2>
+        <h2 class="card-text"><?php while($tt=mysqli_fetch_assoc($t)){echo $tt['count(*)'];}?></h2>
       </div>
     </div>
 
     <div class="card" style="width:16rem;height:8rem;">
       <div class="card-body">
         <h5 class="card-title">Solicitações Ativas</h5>
-        <h2 class="card-text"><?php while($tt=mysqli_fetch_assoc($t3)){echo $tt3['count(*)'];}?></h2>
+        <h2 class="card-text"><?php while($tt=mysqli_fetch_assoc($t)){echo $tt['count(*)'];}?></h2>
       </div>
     </div>
 
