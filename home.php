@@ -45,45 +45,48 @@
   if($tc2 === FALSE) { 
     die(mysqli_error($connect));
   }
-  while($tt6=mysqli_fetch_assoc($tc2)){echo $tt6['count(*)'];}
-  $cpf1 = $tt6['count(*)'];
+  while($tt6=mysqli_fetch_assoc($tc2)){
+    echo $tt6['count(*)'];
+  }
+  //$cpf1 = $tt6['count(*)'];
   $cpf2 = 1;
   $cpf3 = 1;
   $cpf4 = 1;
   $cpf5 = 1;
   $cpf6 = 1;
 ?>
-<main class="container">
-  <section class="d-flex mx-auto justify-content-evenly">
-    <div class="card" style="width:16rem;height:8rem;">
+<main class="container-lg">
+  <div class="d-grid gap-2 d-lg-flex justify-content-sm-center mb-5 mx-auto">
+    <div class="card mx-auto" style="width:260px;height:8rem;">
       <div class="card-body">
         <h5 class="card-title">Total de Certificados</h5>
-        <h2 class="card-text"><?php while($tt=mysqli_fetch_assoc($t)){echo $tt['count(*)'];echo $cpf1;}?></h2>
+        <h2 class="card-text"><?php while($tt=mysqli_fetch_assoc($t)){echo $tt['count(*)'];}?></h2>
       </div>
     </div>
 
-    <div class="card" style="width:16rem;height:8rem;">
+    <div class="card mx-auto" style="width:260px;height:8rem;">
       <div class="card-body">
         <h5 class="card-title">Solicitações Ativas</h5>
-        <h2 class="card-text"><?php while($tt=mysqli_fetch_assoc($t3)){echo $tt3['count(*)'];}?></h2>
+        <h2 class="card-text"><?php while($tt3=mysqli_fetch_assoc($t3)){echo $tt3['count(*)'];}?></h2>
       </div>
     </div>
 
-    <div class="card" style="width:16rem;height:8rem;">
+    <div class="card mx-auto" style="width:260px;height:8rem;">
       <div class="card-body">
         <h5 class="card-title">Total de Parceiros</h5>
         <h2 class="card-text"><?php while($tt2=mysqli_fetch_assoc($t2)){echo $tt2['count(*)'];}?></h2>
       </div>
     </div>
 
-    <div class="card" style="width:16rem;height:8rem;">
+    <div class="card mx-auto" style="width:260px;height:8rem;">
       <div class="card-body">
         <h5 class="card-title">Total Vencimentos do Mês</h5>
         <h2 class="card-text"><?php while($tt4=mysqli_fetch_assoc($t4)){echo $tt4['count(*)'];}?></h2>
       </div>
     </div>
-  </section>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  </div>  
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
   google.charts.load("current", {packages:["corechart"]});
   google.charts.setOnLoadCallback(drawChart);
@@ -104,16 +107,15 @@
                      { calc: "stringify", sourceColumn: 1, type: "string", role: "annotation" }, 2]);
     var options = {
       title: "Total de E-CPF",
-      width: 600,
-      height: 400,
+      width: 0,
+      height: 450,
       bar: {groupWidth: "85%"},
       legend: { position: "none" },
     };
     var chart = new google.visualization.BarChart(document.getElementById("e-cpf"));
     chart.draw(view, options);
-}
+  }
 </script>
-
 <script type="text/javascript">
   google.charts.load("current", {packages:["corechart"]});
   google.charts.setOnLoadCallback(drawChart);
@@ -133,20 +135,33 @@
                      { calc: "stringify", sourceColumn: 1, type: "string", role: "annotation" },2]);
     var options = {
       title: "Total de E-CNPJ",
-      width: 600,
-      height: 400,
+      width:0,
+      height: 450,
       bar: {groupWidth: "85%"},
       legend: { position: "none" },
     };
     var chart = new google.visualization.BarChart(document.getElementById("e-cnpj"));
     chart.draw(view, options);
-}
+  }
 </script>
-<section class="d-flex">
-  <div class="ms-4 my-5 mx-auto" id="e-cpf" style="width: 50%;"></div>
-  <div class="my-5 mx-auto" id="e-cnpj" style="width: 50%;"></div>
+<section class="tt d-flex justify-content-evenly bg-info">
+  <div class="my-5 mx-auto bg-danger" id="e-cpf"></div>
+  <div class="my-5 mx-auto bg-dark" id="e-cnpj"></div>
 </section>
   
+<style>
+  #e-cpf, #e-cnpj{
+      width: 50%;
+    }
+  @media (max-width:700px) {
+    .tt {
+      flex-direction: column;
+    }
+    #e-cpf, #e-cnpj {
+      width: 100%;
+    }
+  }
+</style>
 </main><script src="js/bootstrap.bundle.js"></script>
 </body>
 </html>
