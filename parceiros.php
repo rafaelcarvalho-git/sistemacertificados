@@ -16,7 +16,7 @@
       }else {
         $logado = $_SESSION['usuario'];
       }      
-    }    
+    }
 ?>
 <?php
   include_once("modals/conexao.php");
@@ -42,7 +42,7 @@
 <body class="bg-light">
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" aria-label="Fourth navbar example">
   <div class="container-fluid">
-    <img src="css/logo.png" alt="" width="50" height="30" class="d-inline-block align-text-top ms-5"><a class="navbar-brand mx-auto ms-2" href="http://e2scertificadoradigital.com.br/" target="_blank"> AR E2S CORRETORA DE SEGUROS LTDA-ME</a>
+    <img src="css/logo.png" alt="" width="50" height="30" class="d-inline-block align-text-top ms-5"><a class="navbar-brand mx-auto ms-2" href="http://e2scertificadoradigital.com.br/" target="_blank"> SISTEMA CERTIFICADOS</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button><style>@media(max-width:585px){.navbar-brand{display:none;}}</style>
@@ -70,7 +70,7 @@
       unset($_SESSION['solicitacaoSucesso']);
   }
 ?>
-  <div class="componentes-contadores d-flex flex-row align-items-center mx-auto">
+  <div class="componentes-contadores d-flex flex-row flex-wrap align-items-center mx-auto">
     <button type="button" class="btn btn-primary mx-auto mb-4" data-bs-toggle="modal" data-bs-target="#orientacoes">Orientações Importantes</button>      
     <?php include('modals/filtro_consulta.php');?>
   </div>
@@ -131,8 +131,8 @@
 </div>
 <footer class="container overflow-auto text-center py-4">
   <h6>Contatos</h6>
-  <h7><i class="bi bi-whatsapp"></i> Edval Silvino: <a href="https://api.whatsapp.com/send/?phone=5588996444627&text&app_absent=0" target="_blank">(88) 99644-4627</a></h7><br>  
-  <h7><i class="bi bi-whatsapp"></i> E2S Certificadora Digital <a href="https://api.whatsapp.com/send/?phone=5588999628489&text&app_absent=0" target="_blank">(88) 99962-8489</a></h7>        
+  <h7><i class="bi bi-whatsapp me-2"></i>Gestor da AR: <a href="https://api.whatsapp.com/send/?phone=5588988573004&text&app_absent=0" target="_blank">(88) 98857-3004</a></h7><br>  
+  <h7><i class="bi bi-whatsapp me-2"></i> Certificadora Digital <a href="https://api.whatsapp.com/send/?phone=5588999123456&text&app_absent=0" target="_blank">(88) 99912-3456</a></h7>        
 </footer>
 </body>
 <script src="js/bootstrap.bundle.js"></script>
