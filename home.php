@@ -84,7 +84,7 @@
   <div class="col-lg-3 col-sm-6 mb-4">
     <div class="card mx-auto w-100" style="max-width:260px;height:132px;">
       <div class="card-body">
-        <h5 class="card-title">Vencimentos do Mês</h5>
+        <h5 class="card-title">Vencimentos próx. mês</h5>
         <h2 class="card-text mt-3"><?php while($tt4=mysqli_fetch_assoc($t4)){echo $tt4['count(*)'];}?></h2>
       </div><div class="icon me-2"><i class="bi bi-calendar2-event"></i></div>
     </div>
@@ -173,6 +173,6 @@
       color: rgba(0, 0, 0, 0.15);
   }
 </style>
-</main><script src="js/bootstrap.bundle.js"></script>
+</main>
 </body>
 </html>
