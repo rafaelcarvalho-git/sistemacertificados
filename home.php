@@ -3,13 +3,13 @@
 <html lang="pt-br">
 <head>
   <?php include('modals/head.php'); ?>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body class="bg-light">
   <?php include('modals/navbar.php'); ?>
 <header class="container py-4 text-center">
   <h3 class="text-center mx-auto pb-1">Olá, <strong>afd</strong>. Seja bem vindo(a).</h3>     
-  <h2>Sistema E2S Corretora de Seguros - Certificadora Digital</h2>
-  <p class="lead">Informações sobre certificados digitais, parceiros e negócios futuros.</p>        
+  <h2>Sistema para Solicitação de Certificados - Certificadora Digital</h2>       
 </header>
 <?php
   include_once("modals/conexao.php");  
@@ -56,35 +56,40 @@
   $cpf6 = 1;
 ?>
 <main class="container-lg">
-  <div class="d-grid gap-2 d-lg-flex justify-content-sm-center mb-5 mx-auto">
-    <div class="card mx-auto" style="width:260px;height:8rem;">
+<section class="row">
+  <div class="col-lg-3 col-sm-6 mb-4">
+    <div class="card mx-auto w-100" style="max-width:260px;height:132px;">
       <div class="card-body">
         <h5 class="card-title">Total de Certificados</h5>
-        <h2 class="card-text"><?php while($tt=mysqli_fetch_assoc($t)){echo $tt['count(*)'];}?></h2>
-      </div>
+        <h2 class="card-text mt-3"><?php while($tt=mysqli_fetch_assoc($t)){echo $tt['count(*)'];}?></h2>
+      </div><div class="icon me-2"><i class="bi bi-graph-up"></i></div>
     </div>
-
-    <div class="card mx-auto" style="width:260px;height:8rem;">
+  </div>
+  <div class="col-lg-3 col-sm-6 mb-4">
+    <div class="card mx-auto w-100" style="max-width:260px;height:132px;">
       <div class="card-body">
         <h5 class="card-title">Solicitações Ativas</h5>
-        <h2 class="card-text"><?php while($tt3=mysqli_fetch_assoc($t3)){echo $tt3['count(*)'];}?></h2>
-      </div>
+        <h2 class="card-text mt-3"><?php while($tt3=mysqli_fetch_assoc($t3)){echo $tt3['count(*)'];}?></h2>
+      </div><div class="icon me-2"><i class="bi bi-check-square"></i></div>
     </div>
-
-    <div class="card mx-auto" style="width:260px;height:8rem;">
+  </div>
+  <div class="col-lg-3 col-sm-6 mb-4">
+    <div class="card mx-auto w-100" style="max-width:260px;height:132px;">
       <div class="card-body">
         <h5 class="card-title">Total de Parceiros</h5>
-        <h2 class="card-text"><?php while($tt2=mysqli_fetch_assoc($t2)){echo $tt2['count(*)'];}?></h2>
-      </div>
+        <h2 class="card-text mt-3"><?php while($tt2=mysqli_fetch_assoc($t2)){echo $tt2['count(*)'];}?></h2>
+      </div><div class="icon me-2"><i class="bi bi-people"></i></div>
     </div>
-
-    <div class="card mx-auto" style="width:260px;height:8rem;">
+  </div>
+  <div class="col-lg-3 col-sm-6 mb-4">
+    <div class="card mx-auto w-100" style="max-width:260px;height:132px;">
       <div class="card-body">
-        <h5 class="card-title">Total Vencimentos do Mês</h5>
-        <h2 class="card-text"><?php while($tt4=mysqli_fetch_assoc($t4)){echo $tt4['count(*)'];}?></h2>
-      </div>
+        <h5 class="card-title">Vencimentos do Mês</h5>
+        <h2 class="card-text mt-3"><?php while($tt4=mysqli_fetch_assoc($t4)){echo $tt4['count(*)'];}?></h2>
+      </div><div class="icon me-2"><i class="bi bi-calendar2-event"></i></div>
     </div>
-  </div>  
+  </div>
+</section>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
@@ -103,8 +108,7 @@
     ]);
 
     var view = new google.visualization.DataView(data);
-    view.setColumns([0, 1,
-                     { calc: "stringify", sourceColumn: 1, type: "string", role: "annotation" }, 2]);
+    view.setColumns([0, 1, { calc: "stringify", sourceColumn: 1, type: "string", role: "annotation" }, 2]);
     var options = {
       title: "Total de E-CPF",
       width: 0,
@@ -131,8 +135,7 @@
       ['(Outro tipo)', cnpj[5], 'yellow'],
     ]);
     var view = new google.visualization.DataView(data);
-    view.setColumns([0, 1,
-                     { calc: "stringify", sourceColumn: 1, type: "string", role: "annotation" },2]);
+    view.setColumns([0, 1, { calc: "stringify", sourceColumn: 1, type: "string", role: "annotation" },2]);
     var options = {
       title: "Total de E-CNPJ",
       width:0,
@@ -144,22 +147,38 @@
     chart.draw(view, options);
   }
 </script>
-<section class="tt d-flex justify-content-evenly bg-info">
-  <div class="my-5 mx-auto bg-danger" id="e-cpf"></div>
-  <div class="my-5 mx-auto bg-dark" id="e-cnpj"></div>
+<section class="graphics row container mx-auto">
+  <div class="graphic mx-auto col-lg-6 col-sm-6 mb-4">
+    <div class="my-2 mx-auto card" id="e-cpf"></div>
+  </div>
+  <div class="graphic mx-auto col-lg-6 col-sm-6 mb-4">
+    <div class="my-2 mx-auto card" id="e-cnpj"></div>
+  </div>
 </section>
   
 <style>
-  #e-cpf, #e-cnpj{
-      width: 50%;
-    }
+  body {
+    overflow-x: hidden;
+  }
   @media (max-width:700px) {
-    .tt {
-      flex-direction: column;
+   .graphic {
+      width: 95%;
     }
-    #e-cpf, #e-cnpj {
-      width: 100%;
-    }
+  }
+
+  .card:hover .icon i {
+      font-size: 62px;
+      transition: 1s;
+      -webkit-transition: 1s;
+  }
+  .card .icon {
+      position: absolute;
+      top: auto;
+      bottom: 5px;
+      right: 5px;
+      z-index: 0;
+      font-size: 48px;
+      color: rgba(0, 0, 0, 0.15);
   }
 </style>
 </main><script src="js/bootstrap.bundle.js"></script>
