@@ -1,4 +1,4 @@
-<?php //include('modals/verificar_acesso.php'); ?>
+<?php include('modals/verificar_acesso.php'); ?>
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -8,7 +8,7 @@
 <body class="bg-light">
   <?php include('modals/navbar.php'); ?>
 <header class="container py-4 text-center">
-  <h3 class="text-center mx-auto pb-1">Olá, <strong>afd</strong>. Seja bem vindo(a).</h3>     
+  <h3 class="text-center mx-auto pb-1">Olá, <strong><?php echo $logado; ?></strong>. Seja bem vindo(a).</h3>     
   <h2>Sistema para Solicitação de Certificados - Certificadora Digital</h2>       
 </header>
 <?php
@@ -157,21 +157,13 @@
 </section>
   
 <style>
-  body {
-    overflow-x: hidden;
-  }
-  @media (max-width:700px) {
-   .graphic {
-      width: 95%;
-    }
-  }
-
-  .card:hover .icon i {
+  body{overflow-x: hidden;}@media(max-width:700px){.graphic{width:95%;}}
+  .card:hover .icon i{
       font-size: 62px;
       transition: 1s;
       -webkit-transition: 1s;
   }
-  .card .icon {
+  .card .icon{
       position: absolute;
       top: auto;
       bottom: 5px;
