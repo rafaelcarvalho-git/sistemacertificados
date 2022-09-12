@@ -40,20 +40,65 @@
     die(mysqli_error($connect));
   }
   
-  $totcpf = "SELECT count(*) FROM solicitacoes_concluidas where tipo_certificado = 'E-CPF A1 Midia Digital 1 Ano'";   
-  $tc2 = mysqli_query($connect, $totcpf);
-  if($tc2 === FALSE) { 
+  $total_concluidas = "SELECT * FROM solicitacoes_concluidas";   
+  $t_con = mysqli_query($connect, $total_concluidas);
+  if($t_con === FALSE) { 
     die(mysqli_error($connect));
   }
-  while($tt6=mysqli_fetch_assoc($tc2)){
-    echo $tt6['count(*)'];
+    
+  $cpfa1 = 0;
+  $cpfa3cartao = 0;
+  $cpfa3token = 0;
+  $cpfa3leitora = 0;
+  $cpfa3semmidia = 0;
+  $cnpja1 = 0;
+  $cnpja3 = 0;
+  $cnpja3cartao = 0;
+  $cnpja3token = 0;
+  $cnpja3leitora = 0;
+  $cnpja3semmidia = 0;
+
+  while($tt=mysqli_fetch_assoc($t_con)){
+    $tipo = $tt['tipo_certificado'];
+    $string = substr($tipo,0, (strlen($tipo)-6));     
+    switch($string){
+      case 'E-CPF A1 Midia Digital';
+          $cpfa1++;
+      case 'E-CPF A3 Cartao';
+          $cpfa3cartao++;
+      case 'E-CPF A3 Token';
+          $cpfa3token++;
+      case 'E-CPF A3 Cartao + Leitora';
+          $cpfa3leitora++;
+      case 'E-CPF A3 sem midia';
+          $cpfa3semmidia++;
+      case 'E-CNPJ A1 Midia Digital';
+          $cnpja1++;
+      case 'E-CNPJ A3 Cartao';
+          $cnpja3cartao++;
+      case 'E-CNPJ A3 Token';
+          $cnpja3token++;
+      case 'E-CNPJ A3 Cartao + Leitora';
+          $cnpja3leitora++;
+      case 'E-CNPJ A3 sem midia';
+          $cnpja3semmidia++;
+      case '(Outro tipo)';
+          $outrotipo++;                
+    }    
   }
-  //$cpf1 = $tt6['count(*)'];
-  $cpf2 = 1;
-  $cpf3 = 1;
-  $cpf4 = 1;
-  $cpf5 = 1;
-  $cpf6 = 1;
+  
+echo '<br> CPFA1'.$cpfa1;
+echo '<br> CPFCA'.$cpfa3cartao;
+echo '<br> CPFTO'.$cpfa3token;
+echo '<br> CPFLE'.$cpfa3leitora;
+echo '<br> CPFSEM'.$cpfa3semmidia;
+echo '<br>'.$cnpja1;
+echo '<br>'.$cnpja3cartao;
+echo '<br>'.$cnpja3token;
+echo '<br>'.$cnpja3leitora;
+echo '<br>'.$cnpja3semmidia;
+echo '<br>'.$outrotipo;
+
 ?>
 <main class="container-lg">
 <section class="row">
@@ -157,21 +202,17 @@
 </section>
   
 <style>
-  body{overflow-x: hidden;}@media(max-width:700px){.graphic{width:95%;}}
-  .card:hover .icon i{
-      font-size: 62px;
-      transition: 1s;
-      -webkit-transition: 1s;
-  }
-  .card .icon{
-      position: absolute;
-      top: auto;
-      bottom: 5px;
-      right: 5px;
-      z-index: 0;
-      font-size: 48px;
-      color: rgba(0, 0, 0, 0.15);
-  }
+body{overflow-x: hidden;}@media(max-width:700px){.graphic{width:95%;}}
+.card:hover .icon i{font-size:62px;transition:1s;-webkit-transition:1s;}
+.card .icon{
+  position: absolute;
+  top: auto;
+  bottom: 5px;
+  right: 5px;
+  z-index: 0;
+  font-size: 48px;
+  color: rgba(0, 0, 0, 0.15);
+}
 </style>
 </main>
 </body>
