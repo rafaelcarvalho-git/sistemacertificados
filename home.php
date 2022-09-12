@@ -52,24 +52,15 @@
       die(mysqli_error($connect));
     }
       
-    $cpfa1 = 0;
-    $cpfa3cartao = 0;
-    $cpfa3token = 0;
-    $cpfa3leitora = 0;
-    $cpfa3semmidia = 0;    	  	  
-    $cnpja1 = 0;
-    $cnpja3 = 0;
-    $cnpja3cartao = 0;
-    $cnpja3token = 0;
-    $cnpja3leitora = 0;
-    $cnpja3semmidia = 0;
+    $cpfa1 = 0;$cpfa3cartao = 0;$cpfa3token = 0;$cpfa3leitora = 0;$cpfa3semmidia = 0;    	  	  
+    $cnpja1 = 0;$cnpja3cartao = 0;$cnpja3token = 0;$cnpja3leitora = 0;$cnpja3semmidia = 0;
   	$outrotipo = 0;
   
     while($tt=mysqli_fetch_assoc($t_con)){
       $tipo = $tt['tipo_certificado'];
       $string = substr($tipo,0, (strlen($tipo)-6));  
       if ($string == 'E-CPF A1 Midia Digital'){
-          $cpfa1++;
+        $cpfa1++;
       }
       if (($string == 'E-CPF A3 Cartao') or ($string == 'E-CPF A3 Cartao ')){
         $cpfa3cartao++;
@@ -102,7 +93,6 @@
           $outrotipo++;
       }  
     }
-
   $cpf = [$cpfa1, $cpfa3cartao, $cpfa3token, $cpfa3leitora, $cpfa3semmidia, $outrotipo];
   $cnpj = [$cnpja1, $cnpja3cartao, $cnpja3token, $cnpja3leitora, $cnpja3semmidia, $outrotipo];
   foreach ($cpf as $value) {
@@ -112,8 +102,7 @@
   foreach ($cnpj as $value2) {
     $str2 = $str2 . ' '.$value2;
   }
-  $cnpj_string = substr($str2,1); 
-  
+  $cnpj_string = substr($str2,1);   
   ?>
   <div id="cpf-array" class="d-none"><?php echo $cpf_string;?></div>
   <div id="cnpj-array" class="d-none"><?php echo $cnpj_string;?></div>
