@@ -104,27 +104,19 @@
     }
 
   $cpf = [$cpfa1, $cpfa3cartao, $cpfa3token, $cpfa3leitora, $cpfa3semmidia, $outrotipo];
-  $cnpj = [$cnpja1, $cnpja3, $cnpja3cartao, $cnpja3token, $cnpja3leitora, $cnpja3semmidia, $outrotipo];
-  
-     
- 
-    foreach ($cpf as $value) {
-      echo $value . ',';
-      $str = $str . ','.$value;
+  $cnpj = [$cnpja1, $cnpja3cartao, $cnpja3token, $cnpja3leitora, $cnpja3semmidia, $outrotipo];
+  foreach ($cpf as $value) {
+    $str = $str . ' '.$value;
   }
-  $sg = substr($str,1); 
-  echo '<br>'.$sg;
-
-  ?>
+  $cpf_string = substr($str,1); 
+  foreach ($cnpj as $value2) {
+    $str2 = $str2 . ' '.$value2;
+  }
+  $cnpj_string = substr($str2,1); 
   
-
-
   ?>
-  <div id="aaaa">$cpf = [<?php echo $sg;?>]</div>
-  <script>
-  alert(document.getElementById("aaaa").innerHTML);
-
-  </script>
+  <div id="cpf-array" class="d-none"><?php echo $cpf_string;?></div>
+  <div id="cnpj-array" class="d-none"><?php echo $cnpj_string;?></div>
 <main class="container-lg">
 <section class="row">
   <div class="col-lg-3 col-sm-6 mb-4">
@@ -165,7 +157,10 @@
 <script type="text/javascript">
   google.charts.load("current", {packages:["corechart"]});
   google.charts.setOnLoadCallback(drawChart);
-  var cpf = [15,10,8,6,5,2]
+  const cpfArray = document.getElementById("cpf-array").innerHTML.split(" ").map(str => {
+    return Number(str);
+  });
+  var cpf = cpfArray;
   function drawChart() {
     var data = google.visualization.arrayToDataTable([
       ["Tipo Certificado", "Quantidade", { role: "style" } ],
@@ -182,7 +177,7 @@
     var options = {
       title: "Total de E-CPF",
       width: 0,
-      height: 450,
+      height: 420,
       bar: {groupWidth: "85%"},
       legend: { position: "none" },
     };
@@ -193,7 +188,10 @@
 <script type="text/javascript">
   google.charts.load("current", {packages:["corechart"]});
   google.charts.setOnLoadCallback(drawChart);
-  var cnpj = [25,15,8,9,2,3]
+    const cnpjArray = document.getElementById("cnpj-array").innerHTML.split(" ").map(str => {
+    return Number(str);
+  });
+  var cnpj = cnpjArray;
   function drawChart() {
     var data = google.visualization.arrayToDataTable([
       ["Tipo Certificado", "Quantidade", { role: "style" } ],     
@@ -209,7 +207,7 @@
     var options = {
       title: "Total de E-CNPJ",
       width:0,
-      height: 450,
+      height: 420,
       bar: {groupWidth: "85%"},
       legend: { position: "none" },
     };
