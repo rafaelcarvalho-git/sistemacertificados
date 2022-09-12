@@ -39,67 +39,74 @@
   if($t4 === FALSE) { 
     die(mysqli_error($connect));
   }
-  
-  $total_concluidas = "SELECT * FROM solicitacoes_concluidas";   
-  $t_con = mysqli_query($connect, $total_concluidas);
-  if($t_con === FALSE) { 
-    die(mysqli_error($connect));
-  }
-    
-  $cpfa1 = 0;
-  $cpfa3cartao = 0;
-  $cpfa3token = 0;
-  $cpfa3leitora = 0;
-  $cpfa3semmidia = 0;
-  $cnpja1 = 0;
-  $cnpja3 = 0;
-  $cnpja3cartao = 0;
-  $cnpja3token = 0;
-  $cnpja3leitora = 0;
-  $cnpja3semmidia = 0;
-
-  while($tt=mysqli_fetch_assoc($t_con)){
-    $tipo = $tt['tipo_certificado'];
-    $string = substr($tipo,0, (strlen($tipo)-6));     
-    switch($string){
-      case 'E-CPF A1 Midia Digital';
-          $cpfa1++;
-      case 'E-CPF A3 Cartao';
-          $cpfa3cartao++;
-      case 'E-CPF A3 Token';
-          $cpfa3token++;
-      case 'E-CPF A3 Cartao + Leitora';
-          $cpfa3leitora++;
-      case 'E-CPF A3 sem midia';
-          $cpfa3semmidia++;
-      case 'E-CNPJ A1 Midia Digital';
-          $cnpja1++;
-      case 'E-CNPJ A3 Cartao';
-          $cnpja3cartao++;
-      case 'E-CNPJ A3 Token';
-          $cnpja3token++;
-      case 'E-CNPJ A3 Cartao + Leitora';
-          $cnpja3leitora++;
-      case 'E-CNPJ A3 sem midia';
-          $cnpja3semmidia++;
-      case '(Outro tipo)';
-          $outrotipo++;                
-    }    
-  }
-  
-echo '<br> CPFA1'.$cpfa1;
-echo '<br> CPFCA'.$cpfa3cartao;
-echo '<br> CPFTO'.$cpfa3token;
-echo '<br> CPFLE'.$cpfa3leitora;
-echo '<br> CPFSEM'.$cpfa3semmidia;
-echo '<br>'.$cnpja1;
-echo '<br>'.$cnpja3cartao;
-echo '<br>'.$cnpja3token;
-echo '<br>'.$cnpja3leitora;
-echo '<br>'.$cnpja3semmidia;
-echo '<br>'.$outrotipo;
 
 ?>
+<?php
+    include_once("modals/conexao.php");  
+    $mes = date("m");$mes++;
+    $ano = date("Y");
+  
+    $total_concluidas = "SELECT * FROM solicitacoes_concluidas";   
+    $t_con = mysqli_query($connect, $total_concluidas);
+    if($t_con === FALSE) { 
+      die(mysqli_error($connect));
+    }
+      
+    $cpfa1 = 0;
+    $cpfa3cartao = 0;
+    $cpfa3token = 0;
+    $cpfa3leitora = 0;
+    $cpfa3semmidia = 0;    	  	  
+    $cnpja1 = 0;
+    $cnpja3 = 0;
+    $cnpja3cartao = 0;
+    $cnpja3token = 0;
+    $cnpja3leitora = 0;
+    $cnpja3semmidia = 0;
+  	$outrotipo = 0;
+  
+    while($tt=mysqli_fetch_assoc($t_con)){
+      $tipo = $tt['tipo_certificado'];
+      $string = substr($tipo,0, (strlen($tipo)-6));  
+      if ($string == 'E-CPF A1 Midia Digital'){
+          $cpfa1++;
+      }
+      if (($string == 'E-CPF A3 Cartao') or ($string == 'E-CPF A3 Cartao ')){
+        $cpfa3cartao++;
+      }
+      if (($string == 'E-CPF A3 Token') or ($string == 'E-CPF A3 Token ')){
+        $cpfa3token++;
+      }
+      if (($string == 'E-CPF A3 Cartao + Leitora') or ($string == 'E-CPF A3 Cartao + Leitora ')){
+        $cpfa3leitora++;
+      }
+      if (($string == 'E-CPF A3 sem midia') or ($string == 'E-CPF A3 sem midia ')){
+        $cpfa3semmidia++;
+      }
+      if ($string == 'E-CNPJ A1 Midia Digital'){
+      	$cnpja1++;
+  	  }
+      if (($string == 'E-CNPJ A3 Cartao') or ($string == 'E-CNPJ A3 Cartao ')){
+        $cnpja3cartao++;
+      }
+      if (($string == 'E-CNPJ A3 Token') or ($string == 'E-CNPJ A3 Token ')){
+        $cnpja3token++;
+      }
+      if (($string == 'E-CNPJ A3 Cartao + Leitora') or ($string == 'E-CNPJ A3 Cartao + Leitora ')){
+        $cnpja3leitora++;
+      }
+      if (($string == 'E-CNPJ A3 sem midia') or ($string == 'E-CNPJ A3 sem midia ')){
+          $cnpja3semmidia++;
+      }
+      if ($string == '(Outro tipo)'){
+          $outrotipo++;
+      }  
+    }
+
+  $cpf = [$cpfa1, $cpfa3cartao, $cpfa3token, $cpfa3leitora, $cpfa3semmidia, $outrotipo];
+  $cnpj = [$cnpja1, $cnpja3, $cnpja3cartao, $cnpja3token, $cnpja3leitora, $cnpja3semmidia, $outrotipo];
+  print_r($cnpj);
+  ?>
 <main class="container-lg">
 <section class="row">
   <div class="col-lg-3 col-sm-6 mb-4">
