@@ -105,8 +105,26 @@
 
   $cpf = [$cpfa1, $cpfa3cartao, $cpfa3token, $cpfa3leitora, $cpfa3semmidia, $outrotipo];
   $cnpj = [$cnpja1, $cnpja3, $cnpja3cartao, $cnpja3token, $cnpja3leitora, $cnpja3semmidia, $outrotipo];
-  print_r($cnpj);
+  
+     
+ 
+    foreach ($cpf as $value) {
+      echo $value . ',';
+      $str = $str . ','.$value;
+  }
+  $sg = substr($str,1); 
+  echo '<br>'.$sg;
+
   ?>
+  
+
+
+  ?>
+  <div id="aaaa">$cpf = [<?php echo $sg;?>]</div>
+  <script>
+  alert(document.getElementById("aaaa").innerHTML);
+
+  </script>
 <main class="container-lg">
 <section class="row">
   <div class="col-lg-3 col-sm-6 mb-4">
