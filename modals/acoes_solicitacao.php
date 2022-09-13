@@ -1,4 +1,3 @@
-<?php include('verificar_acesso.php');?>
   <div class="modal fade" id="visualizarSolicitacao<?= $rows_solicitacoes['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="visualizarSolicitacaoLabel">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
