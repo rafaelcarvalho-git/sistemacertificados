@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" aria-label="Fourth navbar example">
     <div class="container-fluid container">
-      <img src="css/logo.png" alt="" width="50" height="30" class="d-inline-block align-text-top ms-5"><a class="navbar-brand mx-auto ms-2" href="" target="_blank"> SISTEMA CERTIFICADOS</a>
+      <img src="css/logo.png" alt="" width="50" height="30" class="d-inline-block align-text-top ms-5"><a class="navbar-brand mx-auto ms-2" href="home.php"> SISTEMA CERTIFICADOS</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button><style>@media(max-width:770px){.navbar-brand{display:none;}}</style>

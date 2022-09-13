@@ -1,12 +1,12 @@
-<? require_once('modals/verificar_acesso.php'); ?>
+<?php require_once('modals/verificar_acesso.php'); ?>
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <? require_once('modals/head.php'); ?>
+  <?php require_once('modals/head.php'); ?>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body class="bg-light">
-  <? require_once('modals/navbar.php'); ?>
+  <?php require_once('modals/navbar.php'); ?>
 <header class="container py-4 text-center">
   <h3 class="text-center mx-auto pb-1">Olá, <strong><?= $logado; ?></strong>. Seja bem vindo(a).</h3>     
   <h2>Sistema para Solicitação de Certificados - Certificadora Digital</h2>       
@@ -214,17 +214,17 @@
 </section>
   
 <style>
-body{overflow-x: hidden;}@media(max-width:700px){.graphic{width:95%;}}
-.card:hover .icon i{font-size:62px;transition:1s;-webkit-transition:1s;}
-.card .icon{
-  position: absolute;
-  top: auto;
-  bottom: 5px;
-  right: 5px;
-  z-index: 0;
-  font-size: 48px;
-  color: rgba(0, 0, 0, 0.15);
-}
+  body{overflow-x: hidden;}@media(max-width:700px){.graphic{width:95%;}}
+  .card:hover .icon i{font-size:62px;transition:1s;-webkit-transition:1s;}
+  .card .icon{
+    position: absolute;
+    top: auto;
+    bottom: 5px;
+    right: 5px;
+    z-index: 0;
+    font-size: 48px;
+    color: rgba(0, 0, 0, 0.15);
+  }
 </style>
 </main>
 </body>

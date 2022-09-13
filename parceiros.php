@@ -37,7 +37,7 @@
 <!doctype html>
 <html lang="pt-br">
 <head>
-<? require_once('modals/head.php'); ?>
+<?php require_once('modals/head.php'); ?>
 </head>
 <body class="bg-light">
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" aria-label="Fourth navbar example">

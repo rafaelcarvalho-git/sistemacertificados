@@ -1,11 +1,11 @@
-<? require_once('modals/verificar_acesso.php'); ?>
+<?php require_once('modals/verificar_acesso.php'); ?>
 <!doctype html>
 <html lang="pt-br">
   <head>
-    <? require_once('modals/head.php'); ?>
+    <?php require_once('modals/head.php'); ?>
   </head>
 <body class="bg-light">
-<? require_once('modals/navbar.php'); ?>
+<?php require_once('modals/navbar.php'); ?>
 <header class="container py-4 text-center">
   <h3 class="text-center mx-auto pb-1">Olá, <strong><?= $logado; ?></strong>. Seja bem vindo(a).</h3>   
   <h2>Usuários do Sistema</h2>
