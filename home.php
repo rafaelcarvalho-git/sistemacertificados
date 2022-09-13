@@ -8,7 +8,7 @@
 <body class="bg-light">
   <? require_once('modals/navbar.php'); ?>
 <header class="container py-4 text-center">
-  <h3 class="text-center mx-auto pb-1">Olá, <strong><?php echo $logado; ?></strong>. Seja bem vindo(a).</h3>     
+  <h3 class="text-center mx-auto pb-1">Olá, <strong><?= $logado; ?></strong>. Seja bem vindo(a).</h3>     
   <h2>Sistema para Solicitação de Certificados - Certificadora Digital</h2>       
 </header>
 <?php
@@ -104,8 +104,8 @@
   }
   $cnpj_string = substr($str2,1);   
   ?>
-  <div id="cpf-array" class="d-none"><?php echo $cpf_string;?></div>
-  <div id="cnpj-array" class="d-none"><?php echo $cnpj_string;?></div>
+  <div id="cpf-array" class="d-none"><?= $cpf_string;?></div>
+  <div id="cnpj-array" class="d-none"><?= $cnpj_string;?></div>
 <main class="container-lg">
 <section class="row">
   <div class="col-lg-3 col-sm-6 mb-4">

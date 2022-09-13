@@ -7,7 +7,7 @@
 <body class="bg-light">
   <? require_once('modals/navbar.php'); ?>
 <header class="container py-4 text-center">
-  <h3 class="text-center mx-auto pb-1">Olá, <strong><?php echo $logado; ?></strong>. Seja bem vindo(a).</h3>     
+  <h3 class="text-center mx-auto pb-1">Olá, <strong><?= $logado; ?></strong>. Seja bem vindo(a).</h3>     
   <h2>Solicitações de Certificados Digitais</h2>
   <p class="lead">Lista com todas as solicitações em edição, processamento, emitidas ou concluídas feitas por contadores, AGRs ou administradores de sistema.</p>        
 </header>

@@ -26,18 +26,18 @@
     </thead>
     <tbody><?php while($rows_solicitacoes = mysqli_fetch_assoc($ativas)){ ?>
       <tr>
-        <td class="user-select-all" style="max-width:300px"><?php echo $rows_solicitacoes['nome']; ?></td>
-        <td><?php echo $rows_solicitacoes['tipo_certificado']; ?></td>
-        <td><?php echo $rows_solicitacoes['data_solicitacao']; ?></td>                  
-        <td><?php echo $rows_solicitacoes['usuario']; ?></td>
+        <td class="user-select-all" style="max-width:300px"><?= $rows_solicitacoes['nome']; ?></td>
+        <td><?= $rows_solicitacoes['tipo_certificado']; ?></td>
+        <td><?= $rows_solicitacoes['data_solicitacao']; ?></td>                  
+        <td><?= $rows_solicitacoes['usuario']; ?></td>
         <td>
           <div class="dropdown navbar py-0">
             <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-card-list"></i></button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#visualizarSolicitacao<?php echo $rows_solicitacoes['id']; ?>">Informações</a></li>
-              <li><a class="dropdown-item" href="documentos/<?php echo $rows_solicitacoes['documentos']; ?>">Documentos</a></li>
-              <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#concluirSolicitacao<?php echo $rows_solicitacoes['id']; ?>">Concluir</a></li>
-              <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#excluirSolicitacao<?php echo $rows_solicitacoes['id']; ?>">Excluir</a></li>
+              <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#visualizarSolicitacao<?= $rows_solicitacoes['id']; ?>">Informações</a></li>
+              <li><a class="dropdown-item" href="documentos/<?= $rows_solicitacoes['documentos']; ?>">Documentos</a></li>
+              <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#concluirSolicitacao<?= $rows_solicitacoes['id']; ?>">Concluir</a></li>
+              <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#excluirSolicitacao<?= $rows_solicitacoes['id']; ?>">Excluir</a></li>
             </ul>
           </div>
         </td>

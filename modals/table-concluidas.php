@@ -28,13 +28,13 @@
     </thead>
     <tbody><?php while($rows_solicitacoes = mysqli_fetch_assoc($concluidas)){ ?>
       <tr>
-        <td class="user-select-all" style="max-width:300px"><?php echo $rows_solicitacoes['nome'];?></td>
-        <td><?php echo $rows_solicitacoes['tipo_certificado'];?></td>        
-        <td><?php echo $rows_solicitacoes['data_solicitacao'];?></td>                           
-        <td><?php echo $rows_solicitacoes['usuario'];?></td>
-        <td><?php echo $rows_solicitacoes['data_solicitacao'];?></td>   
-        <td><?php echo $rows_solicitacoes['validade'];?> Ano(s)</td>
-        <td><?php echo $rows_solicitacoes['data_vencimento'];?></td>  
+        <td class="user-select-all" style="max-width:300px"><?= $rows_solicitacoes['nome'];?></td>
+        <td><?= $rows_solicitacoes['tipo_certificado'];?></td>        
+        <td><?= $rows_solicitacoes['data_solicitacao'];?></td>                           
+        <td><?= $rows_solicitacoes['usuario'];?></td>
+        <td><?= $rows_solicitacoes['data_solicitacao'];?></td>   
+        <td><?= $rows_solicitacoes['validade'];?> Ano(s)</td>
+        <td><?= $rows_solicitacoes['data_vencimento'];?></td>  
       </tr><?php } ?>
     </tbody>
 </table>

@@ -29,11 +29,11 @@
           </thead>
           <tbody><?php while($rows_vencimentos = mysqli_fetch_assoc($vencimentos)){ ?>
             <tr>
-              <td><?php echo $rows_vencimentos['nome']; ?></td>
-              <td><?php echo $rows_vencimentos['tipo_certificado'];?></td>
-              <td><a href="https://api.whatsapp.com/send/?phone=55<?php echo $rows_vencimentos['telefone']; ?>&text&app_absent=0" target="_blank"><?php echo $rows_vencimentos['telefone'];?></a></td>                 
-              <td><?php echo $rows_vencimentos['usuario']; ?></td>
-              <td><?php echo $rows_vencimentos['data_vencimento'];?></td>                               
+              <td><?= $rows_vencimentos['nome']; ?></td>
+              <td><?= $rows_vencimentos['tipo_certificado'];?></td>
+              <td><a href="https://api.whatsapp.com/send/?phone=55<?= $rows_vencimentos['telefone']; ?>&text&app_absent=0" target="_blank"><?= $rows_vencimentos['telefone'];?></a></td>                 
+              <td><?= $rows_vencimentos['usuario']; ?></td>
+              <td><?= $rows_vencimentos['data_vencimento'];?></td>                               
             </tr><?php } ?>
           </tbody>
       </table>

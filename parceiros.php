@@ -59,7 +59,7 @@
   </div>
 </nav>
 <header class="py-4 text-center">
-  <h3 class="text-center mx-auto pb-1">Olá, <strong><?php echo $logado; ?></strong>. Seja bem vindo(a).</h3>     
+  <h3 class="text-center mx-auto pb-1">Olá, <strong><?= $logado; ?></strong>. Seja bem vindo(a).</h3>     
   <h2>Solicitar Certificado Digital</h2>
   <p class="lead">Faça a solicitação do certificado digital para seus clientes e acompanhe todas as solicitações feitas por você.</p>        
 </header>
@@ -84,9 +84,9 @@
     </thead>
     <tbody><?php while($rows_solicitacoes = mysqli_fetch_assoc($sol_usuarios)){ ?>
       <tr>
-        <td><?php echo $rows_solicitacoes['nome']; ?></td>
-        <td><?php echo $rows_solicitacoes['tipo_certificado']; ?></td>        
-        <td><?php echo $rows_solicitacoes['data_solicitacao']; ?></td>                        
+        <td><?= $rows_solicitacoes['nome']; ?></td>
+        <td><?= $rows_solicitacoes['tipo_certificado']; ?></td>        
+        <td><?= $rows_solicitacoes['data_solicitacao']; ?></td>                        
       </tr><?php } ?>
     </tbody>
   </table>
