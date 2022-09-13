@@ -1,12 +1,12 @@
-<?php include('modals/verificar_acesso.php'); ?>
+<? require_once('modals/verificar_acesso.php'); ?>
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <?php include('modals/head.php'); ?>
+  <? require_once('modals/head.php'); ?>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body class="bg-light">
-  <?php include('modals/navbar.php'); ?>
+  <? require_once('modals/navbar.php'); ?>
 <header class="container py-4 text-center">
   <h3 class="text-center mx-auto pb-1">Olá, <strong><?php echo $logado; ?></strong>. Seja bem vindo(a).</h3>     
   <h2>Sistema para Solicitação de Certificados - Certificadora Digital</h2>       

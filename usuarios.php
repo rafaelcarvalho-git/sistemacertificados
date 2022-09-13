@@ -1,4 +1,18 @@
-<?php include('modals/verificar_acesso.php'); ?>
+<? require_once('modals/verificar_acesso.php'); ?>
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <? require_once('modals/head.php'); ?>
+  </head>
+<body class="bg-light">
+<? require_once('modals/navbar.php'); ?>
+<header class="container py-4 text-center">
+  <h3 class="text-center mx-auto pb-1">Olá, <strong><?php echo $logado; ?></strong>. Seja bem vindo(a).</h3>   
+  <h2>Usuários do Sistema</h2>
+  <p class="lead">Lista de usuários do sistema, cria e exclui usuários, define o tipo de acesso (privilégio).</p>
+    <p><strong>Contador:</strong> Apenas faz solicitações de certificados digitais.<br><strong>Administrador:</strong> Tem acesso a todas as funções do sistema.</p>       
+</header>
+<main class="container overflow-auto">
 <?php
   include_once("modals/conexao.php");
   $listar_usuarios = "SELECT * FROM usuarios ORDER BY id DESC";
@@ -7,20 +21,6 @@
     die(mysqli_error($connect));
   }
 ?>
-<!doctype html>
-<html lang="pt-br">
-  <head>
-    <?php include('modals/head.php'); ?>
-  </head>
-<body class="bg-light">
-<?php include('modals/navbar.php'); ?>
-<header class="container py-4 text-center">
-  <h3 class="text-center mx-auto pb-1">Olá, <strong><?php echo $logado; ?></strong>. Seja bem vindo(a).</h3>   
-  <h2>Usuários do Sistema</h2>
-  <p class="lead">Lista de usuários do sistema, cria e exclui usuários, define o tipo de acesso (privilégio).</p>
-    <p><strong>Contador:</strong> Apenas faz solicitações de certificados digitais.<br><strong>Administrador:</strong> Tem acesso a todas as funções do sistema.</p>       
-</header>
-<main class="container overflow-auto">
   <?php
   if (isset($_SESSION['teste'])) {
       echo $_SESSION['teste'];

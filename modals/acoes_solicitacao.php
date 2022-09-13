@@ -21,7 +21,7 @@
           <h4><strong>CEP</strong></h4>
           <h3 class="text-primary user-select-all"><?php echo $rows_solicitacoes['cep']; ?></h3>
           <h4><strong>Endereço</strong></h4>
-          <h3 class="text-primary user-select-all"><?php echo$rows_solicitacoes['endereco']; ?></h3>  
+          <h3 class="text-primary user-select-all"><?php echo $rows_solicitacoes['endereco']; ?></h3>  
           <hr>
           <h4><strong>Observações</strong></h4>
           <h3 class="text-primary"><?php echo $rows_solicitacoes['observacoes']; ?></h3>

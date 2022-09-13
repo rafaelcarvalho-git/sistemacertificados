@@ -1,11 +1,11 @@
-<?php include('modals/verificar_acesso.php'); ?>
+<? require_once('modals/verificar_acesso.php'); ?>
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <?php include('modals/head.php'); ?>
+  <? require_once('modals/head.php'); ?>
 </head>
 <body class="bg-light">
-  <?php include('modals/navbar.php'); ?>
+  <? require_once('modals/navbar.php'); ?>
 <header class="container py-4 text-center">
   <h3 class="text-center mx-auto pb-1">Olá, <strong><?php echo $logado; ?></strong>. Seja bem vindo(a).</h3>     
   <h2>Solicitações de Certificados Digitais</h2>
