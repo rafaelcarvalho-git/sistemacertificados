@@ -54,7 +54,7 @@
       
     $cpfa1 = 0;$cpfa3cartao = 0;$cpfa3token = 0;$cpfa3leitora = 0;$cpfa3semmidia = 0;    	  	  
     $cnpja1 = 0;$cnpja3cartao = 0;$cnpja3token = 0;$cnpja3leitora = 0;$cnpja3semmidia = 0;
-  	$outrotipo = 0;
+  	$outrotipo = 0;$str='';$str2='';
   
     while($tt=mysqli_fetch_assoc($t_con)){
       $tipo = $tt['tipo_certificado'];
