@@ -38,23 +38,20 @@
           </tbody>
       </table>
       </div>
-      <button id="btn" type="button" class="btn btn-primary">Imprimir</button>
+      <button id="btn-print" type="button" class="btn btn-primary">Imprimir</button>
 <script>
-  document.getElementById('btn').onclick = function() {
-  var conteudo = document.getElementById('table-vencimento').innerHTML;
-  var style = "<style>";
-  style = style + "table {width: 100%;font: 20px Calibri;}";
-  style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
-  style = style + "padding: 2px 3px;text-align: center;}";
-  style = style + "</style>";   
-  var win = window.open('', '', 'height=700,width=1000');
-  win.document.write('<html><head><title>Vencimentos</title></head><body>');
-  win.document.write(conteudo);   
-  win.document.write(style);
-  win.document.write('</body></html>');
-  win.document.close();
-  win.print();
-};
+  document.getElementById('btn-print').onclick = function() {
+    var style = "<style>table {width: 100%;font: 20px Calibri;}";
+    style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;padding: 2px 3px;text-align: center;}";
+    style = style + "</style>";   
+    var win = window.open('', '', 'height=700,width=1000');
+    win.document.write('<html><head><title>Vencimentos</title></head><body>');
+    win.document.write(document.getElementById('table-vencimento').innerHTML);   
+    win.document.write(style);
+    win.document.write('</body></html>');
+    win.document.close();
+    win.print();
+  };
 </script>            
     </div>
   </div>

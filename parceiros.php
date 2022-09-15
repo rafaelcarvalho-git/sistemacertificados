@@ -131,8 +131,8 @@
 </div>
 <footer class="container overflow-auto text-center py-4">
   <h6>Contatos</h6>
-  <h7><i class="bi bi-whatsapp me-2"></i>Gestor da AR: <a href="https://api.whatsapp.com/send/?phone=5588988573004&text&app_absent=0" target="_blank">(88) 98857-3004</a></h7><br>  
-  <h7><i class="bi bi-whatsapp me-2"></i> Certificadora Digital <a href="https://api.whatsapp.com/send/?phone=5588999123456&text&app_absent=0" target="_blank">(88) 99912-3456</a></h7>        
+  <h7><i class="bi bi-whatsapp me-2 text-primary"></i>Gestor da AR: <a href="https://api.whatsapp.com/send/?phone=5588988573004&text&app_absent=0" target="_blank"> (88) 98857-3004</a></h7><br>
+  <h7><i class="bi bi-whatsapp me-2 text-primary"></i>Certificadora Digital <a href="https://api.whatsapp.com/send/?phone=5588999123456&text&app_absent=0" target="_blank"> (88) 99912-3456</a></h7>        
 </footer>
 </body>
 <script src="js/bootstrap.bundle.js"></script>

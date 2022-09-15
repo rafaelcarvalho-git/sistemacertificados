@@ -3,7 +3,6 @@
 <html lang="pt-br">
 <head>
   <?php require_once('modals/head.php'); ?>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body class="bg-light">
   <?php require_once('modals/navbar.php'); ?>
@@ -142,7 +141,7 @@
   </div>
 </section>
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="js/loader.js"></script>
 <script type="text/javascript">
   google.charts.load("current", {packages:["corechart"]});
   google.charts.setOnLoadCallback(drawChart);
